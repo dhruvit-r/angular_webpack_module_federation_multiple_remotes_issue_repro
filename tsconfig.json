@@ -8,14 +8,17 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
+    "target": "es5",
+    "module": "es2020",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
+    "lib": ["es2018", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@module-federation-repro/shop": ["libs/shop/src/index.ts"],
+      "@module-federation-repro/profile": ["libs/profile/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

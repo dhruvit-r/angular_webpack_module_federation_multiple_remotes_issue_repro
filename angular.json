@@ -21,8 +21,14 @@
             "polyfills": "apps/shell/src/polyfills.ts",
             "tsConfig": "apps/shell/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/shell/src/favicon.ico", "apps/shell/src/assets"],
-            "styles": ["apps/shell/src/styles.scss"],
+            "assets": [
+              "apps/shell/src/favicon.ico",
+              "apps/shell/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/shell/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -80,7 +86,10 @@
               "apps/shell/tsconfig.app.json",
               "apps/shell/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/shell/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/shell/**"
+            ]
           }
         },
         "test": {
@@ -115,9 +124,64 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/shell-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/shell-e2e/**"]
+            "tsConfig": [
+              "apps/shell-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/shell-e2e/**"
+            ]
           }
+        }
+      }
+    },
+    "shop": {
+      "projectType": "library",
+      "root": "libs/shop",
+      "sourceRoot": "libs/shop/src",
+      "prefix": "module-federation-repro",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shop/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/shop/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "profile": {
+      "projectType": "library",
+      "root": "libs/profile",
+      "sourceRoot": "libs/profile/src",
+      "prefix": "module-federation-repro",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/profile/tsconfig.lib.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/profile/**"
+            ]
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

@@ -1,1 +1,154 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* You can add global styles to this file, and also import other style files */
+/* normalize */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+html, body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  background: #eee;
+}
+
+.error-text {
+  color : red;
+}
+
+// text ellipsis
+.is-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// default input styles
+input[type=text] {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 28px;
+  font-size: 14px;
+  padding: 0 4px;
+  border-style: solid;
+  border-width: 1px;
+
+  &:invalid {
+    border-color: red;
+  }
+}
+
+textarea {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+}
+
+.mat-dialog-container {
+
+  .mat-dialog-actions {
+    padding: 15px 0;
+    justify-content: flex-end;
+  }
+}
+
+.mat-tab-label-container {
+  flex-shrink: 1;
+}
+
+/** gutter/splitter (for resizing) styles **/
+.gutter {
+  position: relative;
+  z-index: 2;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+  }
+
+  &.gutter-vertical {
+    cursor: row-resize;
+
+    &:before,
+    &:after {
+      left: 0;
+      right: 0;
+      height: 5px;
+    }
+
+    &:before {
+      top: 100%;
+    }
+
+    &:after {
+      bottom: 100%;
+    }
+  }
+
+  &.gutter-horizontal {
+    cursor: col-resize;
+
+    &:before,
+    &:after {
+      top: 0;
+      bottom: 0;
+      width: 5px;
+    }
+
+    &:before {
+      left: 100%;
+    }
+
+    &:after {
+      right: 100%;
+    }
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import '~@angular/material/theming';
+ 
+@include mat-core();
+
+// Add your desired themes to this map.
+$themes-map: (
+  indigo-pink: (
+    primary-base: $mat-indigo,
+    accent-base: $mat-pink,
+  ),
+
+  deeppurple-amber: (
+    primary-base: $mat-deep-purple,
+    accent-base: $mat-amber,
+  ),
+
+  pink-bluegrey: (
+    primary-base: $mat-pink,
+    accent-base: $mat-blue-gray,
+  ),
+
+  purple-green: (
+    primary-base: $mat-purple,
+    accent-base: $mat-green,
+  ),
+);
+
+// Import the module and do the job:
+@import '~angular-material-dynamic-themes/themes-core';
+@include make-stylesheets($themes-map);

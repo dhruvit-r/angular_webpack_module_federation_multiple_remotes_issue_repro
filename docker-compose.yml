@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx.docker.conf:/etc/nginx/nginx.conf
+      - .:/usr/src/app/
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+      - "10000:10000"

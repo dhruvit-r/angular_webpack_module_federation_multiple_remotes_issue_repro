@@ -25,6 +25,12 @@
     "shell-e2e": {
       "tags": [],
       "implicitDependencies": ["shell"]
+    },
+    "shop": {
+      "tags": []
+    },
+    "profile": {
+      "tags": []
     }
   }
 }
